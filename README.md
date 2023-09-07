@@ -1,2 +1,0 @@
-# StudentPerformanceAnalysis
-Apache Spark | BigData
