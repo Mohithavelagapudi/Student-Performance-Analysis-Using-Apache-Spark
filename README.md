@@ -10,15 +10,12 @@ Educational institutions increasingly rely on data analytics to understand stude
 
 ## 📊 Dataset Description
 
-- **Source:** `StudentsPerformance.csv` (publicly available, anonymized dataset)
-- **Size:** ~1,000 records (each representing a student)
-- **Features:**
-  - `gender`: Student's gender
-  - `ethnicity`: Socio-ethnic group
-  - `education`: Parental education level
-  - `lunch`: Lunch type (standard/free-reduced)
-  - `preparationCourse`: Completion status of exam preparation course
-  - `mathScore`, `readingScore`, `writingScore`: Scores in respective subjects (0-100)
+| **Property**       | **Description**                                                                                               |
+| ------------------ | ------------------------------------------------------------------------------------------------------------- |
+| **Source**         | `StudentsPerformance.csv` *(public, anonymized dataset)*                                                      |
+| **Size**           | ~1,000 records                                                                                                |
+| **Representation** | Each record = 1 student                                                                                       |
+| **Features**       | `gender`, `ethnicity`, `education`, `lunch`, `preparationCourse`, `mathScore`, `readingScore`, `writingScore` |
 
 **Preprocessing:**
 - Data is parsed and mapped to a `Member` class for structured access.
@@ -30,14 +27,14 @@ The analysis pipeline is implemented in Scala using Apache Spark's RDD API for d
 
 ```mermaid
 graph TD
-    A[Data Ingestion] --> B[Preprocessing & Mapping]
-    B --> C[Statistical Analysis]
-    C --> D[Performance Segmentation]
-    C --> E[Demographic Analysis]
-    C --> F[Impact Studies]
-    D --> G[Best Performance Filter]
-    E --> H[Gender/Ethnicity/Education Analysis]
-    F --> I[Preparation Course Impact]
+    A[📥 Data Ingestion] --> B[🧹 Preprocessing & Mapping]
+    B --> C[📈 Statistical Analysis]
+    C --> D[🎯 Performance Segmentation]
+    C --> E[🌍 Demographic Analysis]
+    C --> F[📘 Impact Studies]
+    D --> G[🏆 Best Performance Filter]
+    E --> H[👫 Gender/Ethnicity/Education Analysis]
+    F --> I[📖 Preparation Course Impact]
 ```
 
 ### Main Analytical Modules
@@ -75,38 +72,9 @@ val writingMean = rdd.map(_.writingScore).mean()
 - **Data Quality:** Addressed missing or malformed entries during preprocessing.
 - **Scalability:** Used Spark RDDs to handle large datasets efficiently.
 - **Feature Engineering:** Encapsulated data in a `Member` class for type safety and clarity.
-- **Interpretability:** Modularized code for transparent, reproducible analysis.
 
 ## 💡 Key Insights
 
 - **Preparation courses have a measurable positive impact** on student scores, especially in writing.
 - **Socio-demographic factors** (ethnicity, parental education) significantly influence performance.
 - **Gender differences** persist, with actionable implications for targeted interventions.
-- **Distributed analytics** enables rapid, scalable exploration of educational data.
-
-## 🧾 References / Tools Used
-
-- **Programming Language:** Scala
-- **Frameworks:** Apache Spark (RDD API)
-- **Libraries:** Standard Scala, Spark Core
-- **Dataset:** [Students Performance Data Set - Kaggle](https://www.kaggle.com/datasets/spscientist/students-performance-in-exams)
-- **Related Literature:**
-  - Han, J., Kamber, M., & Pei, J. (2011). *Data Mining: Concepts and Techniques*.
-  - Romero, C., & Ventura, S. (2010). Educational data mining: A review of the state of the art.
-
----
-
-## How to Run
-
-1. **Prerequisites:**
-   - Apache Spark installed
-   - Scala (2.11/2.12)
-2. **Clone the repository and place `StudentsPerformance.csv` in the project root.**
-3. **Compile and run:**
-   ```bash
-   spark-submit --class com.sparkProjects.Main target/scala-2.12/student_analysis_bda.jar
-   ```
-
-## 📬 Contact
-For questions or collaboration, please contact [Your Name] at [your.email@example.com].
-
